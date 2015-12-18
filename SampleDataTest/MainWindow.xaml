@@ -4,9 +4,46 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SampleDataTest"
+        xmlns:local2="clr-namespace:SampleDataSource.Store;assembly=SampleDataSource"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" DataContext="{Binding Source={StaticResource Locator},Path=Main}">
+    <Window.Resources>
+        <DataTemplate x:Key="ProductTempalte"  DataType="local2:Product">
+            <Border BorderBrush="Blue" BorderThickness="1"  CornerRadius="2">
+                <StackPanel>
+                    <TextBlock Text="{Binding ProductName}" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock Text="{Binding Price,StringFormat={}{0:C}}" Style="{StaticResource TextBlockStyle}"/>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="lst" Margin="5" ItemsSource="{Binding Path=Products}" ItemTemplate="{DynamicResource ProductTempalte}" HorizontalContentAlignment="Stretch"/>
+        <Grid Grid.Column="1" Margin="5" Background="#FFD1A8A8" DataContext="{Binding SelectedItem, ElementName=lst}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock TextWrapping="Wrap" Text="ProductId" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource TextBlockStyle}" Margin="5"/>
+            <TextBlock TextWrapping="Wrap" Text="ProductName" Grid.Row="1" Style="{DynamicResource TextBlockStyle}"/>
+            <TextBlock TextWrapping="Wrap" Text="Price" Grid.Row="2" Style="{DynamicResource TextBlockStyle}"/>
+            <TextBlock TextWrapping="Wrap" Text="ProductionDate" Grid.Row="3" Style="{DynamicResource TextBlockStyle}"/>
+            <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Id, Mode=OneWay}" Margin="5" VerticalContentAlignment="Center" Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding ProductName, Mode=OneWay}" Grid.Row="1" Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Price, Mode=OneWay}" Grid.Row="2" Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Quantity, Mode=OneWay}" Grid.Row="3" Style="{DynamicResource TextBoxStyle}"/>
+        </Grid>
+
     </Grid>
 </Window>

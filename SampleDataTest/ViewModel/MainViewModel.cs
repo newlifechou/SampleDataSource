@@ -1,4 +1,7 @@
 using GalaSoft.MvvmLight;
+using SampleDataSource;
+using SampleDataSource.Store;
+using System.Collections.ObjectModel;
 
 namespace SampleDataTest.ViewModel
 {
@@ -30,5 +33,16 @@ namespace SampleDataTest.ViewModel
             ////    // Code runs "for real"
             ////}
         }
+
+        public ObservableCollection<Product> Products
+        {
+            get
+            {
+                ObservableCollection<Product> products = 
+                    new ObservableCollection<Product>(CreateStoreData.GetProudcts(10));
+                return products;
+            }
+        }
+
     }
 }

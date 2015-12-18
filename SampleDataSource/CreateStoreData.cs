@@ -13,7 +13,7 @@ namespace SampleDataSource
         /// 获取随即的单个产品对象
         /// </summary>
         /// <returns></returns>
-        public Product GetSingleProduct()
+        public static Product GetSingleProduct()
         {
             Product p = new Product() {
                 Id=RN.GetNo99(),
@@ -30,7 +30,7 @@ namespace SampleDataSource
         /// </summary>
         /// <param name="dataCount"></param>
         /// <returns></returns>
-        public List<Product> GetProudcts(int dataCount)
+        public static List<Product> GetProudcts(int dataCount)
         {
             List<Product> products = new List<Product>();
             for (int i = 0; i < dataCount; i++)
