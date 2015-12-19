@@ -43,6 +43,7 @@ namespace SampleDataTest.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<ProductDetailsViewModel>();
         }
 
         public MainViewModel Main
@@ -52,7 +53,13 @@ namespace SampleDataTest.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        
+        public ProductDetailsViewModel ProductDetails
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ProductDetailsViewModel>();
+            }
+        }
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

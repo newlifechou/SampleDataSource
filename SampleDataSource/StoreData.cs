@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SampleDataSource
 {
-    public class CreateStoreData
+    public class StoreData
     {
         /// <summary>
         /// 获取随即的单个产品对象

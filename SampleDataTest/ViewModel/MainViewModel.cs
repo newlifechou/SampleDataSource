@@ -1,4 +1,6 @@
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Messaging;
 using SampleDataSource;
 using SampleDataSource.Store;
 using System.Collections.ObjectModel;
@@ -24,25 +26,28 @@ namespace SampleDataTest.ViewModel
         /// </summary>
         public MainViewModel()
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
-        }
+            Products = new ObservableCollection<Product>(StoreData.GetProudcts(10));
 
-        public ObservableCollection<Product> Products
-        {
-            get
-            {
-                ObservableCollection<Product> products = 
-                    new ObservableCollection<Product>(CreateStoreData.GetProudcts(10));
-                return products;
-            }
+            ShowDetailCommand = new RelayCommand<Product>(p =>
+              {
+                  Messenger.Default.Send<Product>(p, "ProductDetailsWindow");
+              }, p =>
+           {
+               bool flag = this.Products.Count > 0;
+               return flag;
+           });
+
+            AddNewOneCommand = new RelayCommand<Product>(p =>
+              {
+                  Messenger.Default.Send<Product>(p, "ProductDetailsWindow");
+              });
+
         }
+        public RelayCommand<Product> ShowDetailCommand { get; set; }
+        public RelayCommand<Product> AddNewOneCommand { get; set; }
+
+
+        public ObservableCollection<Product> Products { get; set; }
 
     }
 }

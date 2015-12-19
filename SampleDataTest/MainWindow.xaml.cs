@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using SampleDataSource.Store;
+using SampleDataTest.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,22 @@ namespace SampleDataTest
         public MainWindow()
         {
             InitializeComponent();
+            Messenger.Default.Register<Product>(this,"ProductDetailsWindow", p =>
+            {
+                ProductDetailsView pdv = new ProductDetailsView();
+                pdv.DataContext = new ProductDetailsViewModel() { CurrentProduct = p };
+                pdv.Show();
+            });
+
+            this.Unloaded += (s, e) =>
+            {
+                Messenger.Default.Unregister(this);
+            };
+
+            if (this.lst.Items.Count>0)
+            {
+                lst.SelectedIndex = 0;
+            }
         }
     }
 }

@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonDataSource.cs" />
-    <Compile Include="CreateStoreData.cs" />
+    <Compile Include="StoreData.cs" />
     <Compile Include="RN.cs" />
     <Compile Include="School\Lesson.cs" />
     <Compile Include="School\Student.cs" />
