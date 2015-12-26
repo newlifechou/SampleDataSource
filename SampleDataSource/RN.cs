@@ -13,34 +13,43 @@ namespace SampleDataSource
     static class RN
     {
         private static Random r;
+        private static int count;
         static RN()
         {
-            //生成随机数种子
-            r = new Random();
+            count = 1;
         }
-
         public static int GetNo(int min, int max)
         {
+            count++;
+            r = new Random(DateTime.Now.Millisecond+count);
             return r.Next(min, max);
         }
 
         public static int GetNo9()
         {
+            count++;
+            r = new Random(DateTime.Now.Millisecond + count);
             return GetNo(0, 9);
         }
 
         public static int GetNo99()
         {
+            count++;
+            r = new Random(DateTime.Now.Millisecond + count);
             return GetNo(10, 99);
         }
 
         public static int GetNo999()
         {
+            count++;
+            r = new Random(DateTime.Now.Millisecond + count);
             return GetNo(100, 999);
         }
 
         public static int GetNo9999()
         {
+            count++;
+            r = new Random(DateTime.Now.Millisecond + count);
             return GetNo(1000, 9999);
         }
 
