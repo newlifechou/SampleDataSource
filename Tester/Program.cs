@@ -1,4 +1,4 @@
-﻿using SampleDataSource.Store;
+﻿using RandomNames;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +11,13 @@ namespace Tester
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 10; i++)
+            RNames r = new RNames();
+            for (int i = 0; i < 50; i++)
             {
-                var p = StoreData.GetSingleProduct();
-                Console.Write(p.ProductName);
-                Console.Write(" ");
-                Console.WriteLine(p.Price);
+                //Console.WriteLine(r.GetOneCompany());
+                //Console.WriteLine(r.GetOnePersonName());
+                //Console.WriteLine(r.GetOneSoftwareCategory());
+                Console.WriteLine(r.GetOneSoftwareName());
             }
 
             Console.Read();

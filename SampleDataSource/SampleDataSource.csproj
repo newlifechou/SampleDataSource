@@ -64,8 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonDataSource.cs" />
-    <Compile Include="Store\StoreData.cs" />
     <Compile Include="RN.cs" />
+    <Compile Include="Store\StoreData.cs" />
     <Compile Include="School\Lesson.cs" />
     <Compile Include="School\Student.cs" />
     <Compile Include="School\Teacher.cs" />
