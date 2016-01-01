@@ -40,6 +40,16 @@ namespace RandomNames
             softwareEdtion = ioop.ReadFromDataFile("SoftwareEdition.txt");
         }
         /// <summary>
+        /// 随机返回一个整数
+        /// </summary>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public int GetRandomInt(int min,int max)
+        {
+            return rn.RandomInt(min, max);
+        }
+        /// <summary>
         /// 随即返回名称数组的某一个值
         /// </summary>
         /// <param name="dataArray"></param>
