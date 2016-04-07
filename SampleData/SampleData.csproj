@@ -45,6 +45,7 @@
     <Compile Include="PersonNameCreator.cs" />
     <Compile Include="SampleDataFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoftwareCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.md" />

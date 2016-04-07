@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 /*
     Developer:xs.zhou@outlook.com
-    CreateTime:2016/4/7 14:41:24
+    CreateTime:2016/4/7 15:02:24
 */
 namespace Tester
 {
-    public class TestSampleDataPersonName : ITester
+    public class TestSoftware : ITester
     {
-        private ISampleDataCreator creator = new PersonNameCreator();
+        private SoftwareCreator creator = new SoftwareCreator();
         private SampleDataFactory factory = new SampleDataFactory();
         public void Test()
         {
-            List<string> personNames = factory.GetSampleData(creator, 10);
-            foreach (var item in personNames)
+            List<string> results = factory.GetSampleData(creator, 15);
+            foreach (var item in results)
             {
                 Console.WriteLine(item);
             }
