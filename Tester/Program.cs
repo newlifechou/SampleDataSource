@@ -10,7 +10,7 @@ namespace Tester
     {
         static void Main(string[] args)
         {
-            ITester tester = new TestEmail();
+            ITester tester = new TestAddress();
             tester.Test();
             Console.Read();
         }
