@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="CompanyCreator.cs" />
     <Compile Include="Common.cs" />
+    <Compile Include="EmailCreator.cs" />
     <Compile Include="ISampleDataCreator.cs" />
     <Compile Include="PersonNameCreator.cs" />
     <Compile Include="SampleDataFactory.cs" />
@@ -52,6 +53,9 @@
     <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SampleDataFile\Email.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="SampleDataFile\Company.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
