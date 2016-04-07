@@ -17,11 +17,7 @@ namespace Tester
         private SampleDataFactory factory = new SampleDataFactory();
         public void Test()
         {
-            List<string> results = factory.GetSampleData(creator, 15);
-            foreach (var item in results)
-            {
-                Console.WriteLine(item);
-            }
+            ShowData.Show(factory.GetSampleData(creator, 10));
         }
     }
 }
