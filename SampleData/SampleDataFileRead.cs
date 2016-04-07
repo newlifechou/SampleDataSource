@@ -11,8 +11,20 @@ using System.IO;
 */
 namespace SampleData
 {
-    public class SampleDataFileRead
+    public static class SampleDataFileRead
     {
-
+        public static string[]  ReadFromFile(string dataFileName)
+        {
+            try
+            {
+                string dataFilePath = Path.Combine("SampleDataFile", dataFileName);
+                string[] results = File.ReadAllLines(dataFilePath);
+                return results;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

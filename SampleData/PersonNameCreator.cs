@@ -12,19 +12,24 @@ namespace SampleData
 {
     public class PersonNameCreator : ISampleDataCreator
     {
+        public PersonNameCreator()
+        {
+            r = new Random();
+            firstName = SampleDataFileRead.ReadFromFile("FirstName.txt");
+            lastName = SampleDataFileRead.ReadFromFile("LastName.txt");
+        }
         public string Create()
         {
-            Random r = new Random();
             string result = string.Empty;
-            if (FirstName.Count > 0 && LastName.Count > 0)
+            if (firstName.Length > 0 && lastName.Length > 0)
             {
-                result = FirstName[r.Next(0, FirstName.Count - 1)] + " " + LastName[r.Next(0, LastName.Count - 1)];
+                result = firstName[r.Next(0, firstName.Length - 1)] + " " + lastName[r.Next(0, lastName.Length - 1)];
             }
             return result;
         }
-
-        public List<string> FirstName { get; set; }
-        public List<string> LastName { get; set; }
+        private Random r;
+        private string[] firstName;
+        private string[] lastName;
 
     }
 }
