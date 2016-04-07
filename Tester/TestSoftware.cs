@@ -17,7 +17,7 @@ namespace Tester
         private SampleDataFactory factory = new SampleDataFactory();
         public void Test()
         {
-            ShowData.Show(factory.GetSampleData(creator, 10));
+            ShowData.Show(factory.GetSampleData(creator, 50));
         }
     }
 }
