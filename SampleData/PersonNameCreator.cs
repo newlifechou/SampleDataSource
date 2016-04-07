@@ -14,20 +14,18 @@ namespace SampleData
     {
         public PersonNameCreator()
         {
-            r = new Random();
-            firstName = SampleDataFileRead.ReadFromFile("FirstName.txt");
-            lastName = SampleDataFileRead.ReadFromFile("LastName.txt");
+            firstName = Common.ReadFromFile("FirstName.txt");
+            lastName = Common.ReadFromFile("LastName.txt");
         }
         public string Create()
         {
             string result = string.Empty;
             if (firstName.Length > 0 && lastName.Length > 0)
             {
-                result = firstName[r.Next(0, firstName.Length - 1)] + " " + lastName[r.Next(0, lastName.Length - 1)];
+                result = Common.RandOne(firstName) + " " + Common.RandOne(lastName);
             }
             return result;
         }
-        private Random r;
         private string[] firstName;
         private string[] lastName;
 

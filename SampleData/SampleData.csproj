@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompanyCreator.cs" />
-    <Compile Include="SampleDataFileRead.cs" />
+    <Compile Include="Common.cs" />
     <Compile Include="ISampleDataCreator.cs" />
     <Compile Include="PersonNameCreator.cs" />
     <Compile Include="SampleDataFactory.cs" />

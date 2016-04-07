@@ -14,14 +14,12 @@ namespace SampleData
     {
         public CompanyCreator()
         {
-            Companies = SampleDataFileRead.ReadFromFile("Company.txt");
-            r = new Random();
+            companies = Common.ReadFromFile("Company.txt");
         }
         public string Create()
         {
-            return Companies[r.Next(0, Companies.Length - 1)];
+            return Common.RandOne(companies);
         }
-        private Random r;
-        private string[] Companies;
+        private string[] companies;
     }
 }

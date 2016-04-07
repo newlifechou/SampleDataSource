@@ -14,15 +14,15 @@ namespace SampleData
     {
         public SoftwareCreator()
         {
-            r = new Random();
-            software = SampleDataFileRead.ReadFromFile("Software.txt");
+            software = Common.ReadFromFile("Software.txt");
+            softwareEdition = Common.ReadFromFile("SoftwareEdition.txt");
         }
         public string Create()
         {
-            return software[r.Next(0, software.Length - 1)]+r.Next(1000,9999).ToString();
+            return Common.RandOne(software) + " " + new Random().Next(1000, 9999).ToString() + " " + Common.RandOne(softwareEdition);
         }
 
-        private Random r;
         private string[] software;
+        private string[] softwareEdition;
     }
 }
