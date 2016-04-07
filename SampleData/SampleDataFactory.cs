@@ -9,9 +9,22 @@ namespace SampleData
     /// <summary>
     /// 样板数据工厂
     /// </summary>
-    /// <typeparam name="T">代表任意实现了接口的类</typeparam>
-    public class SampleDataFactory<T> where T: class
+    public class SampleDataFactory
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="creator">创建器</param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public List<string> GetSampleData(ISampleDataCreator creator,int count)
+        {
+            List<string> results = new List<string>();
+            for (int i = 0; i < count; i++)
+            {
+                results.Add(creator.Create());
+            }
+            return results;
+        }
     }
 }

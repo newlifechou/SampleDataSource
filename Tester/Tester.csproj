@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ITester.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestSampleDataPersonName.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -53,6 +55,10 @@
     <ProjectReference Include="..\RandomNames\RandomNames.csproj">
       <Project>{ae08815c-81f7-40ab-a107-7dcf889f2154}</Project>
       <Name>RandomNames</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleData\SampleData.csproj">
+      <Project>{c44197e3-f46c-49b9-9818-8ce44daa953e}</Project>
+      <Name>SampleData</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
