@@ -19,7 +19,7 @@ namespace SampleData
         }
         public string Create()
         {
-            return Common.RandOne(software) + " " + new Random().Next(1000, 9999).ToString() + " " + Common.RandOne(softwareEdition);
+            return Common.RandOne(software) + " " +Common.RandInt(1000,9999).ToString() + " " + Common.RandOne(softwareEdition);
         }
 
         private string[] software;

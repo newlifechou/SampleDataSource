@@ -47,5 +47,9 @@ namespace SampleData
             }
         }
 
+        public static int RandInt(int min,int max)
+        {
+            return r.Next(min, max);
+        }
     }
 }
